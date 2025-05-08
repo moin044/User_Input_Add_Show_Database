@@ -1,0 +1,13 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsersController;
+
+Route::view('/', 'welcome');
+
+Route::get("users", function () {
+    return view("users");
+})->name('users.form');
+
+Route::post("users", [UsersController::class, "Userdata"])->name('user.Userdata');
+Route::get("users", [UsersController::class, "showdata"]);
